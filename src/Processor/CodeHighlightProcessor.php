@@ -56,7 +56,8 @@ class CodeHighlightProcessor implements ProcessorInterface
     {
         if (preg_match('#(language|lang)-([^ ]+)#i', $element->getAttribute('class'), $matches)) {
             $language = $matches[2];
-            HtmlUtils::setContent($element, $this->highlighter->highlight(trim($element->nodeValue), $language));
+            //HtmlUtils::setContent($element, $this->highlighter->highlight(trim($element->nodeValue), $language));
+            HtmlUtils::setContent($element, trim($element->nodeValue));
             HtmlUtils::addClass($element->parentNode, 'language-' . $language);
         }
     }
